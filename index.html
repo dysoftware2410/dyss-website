@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://automaze.co.il/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Automaze — Amazing Automation">
+<meta property="og:image:alt" content="Automaze — Making Amazing Automation">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
@@ -53,7 +53,7 @@
   "priceRange": "₪₪",
   "areaServed": { "@type": "Country", "name": "Israel" },
   "address": { "@type": "PostalAddress", "addressCountry": "IL" },
-  "slogan": "Amazing Automation",
+  "slogan": "Making Amazing Automation",
   "knowsLanguage": ["he", "en"],
   "makesOffer": [
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "אוטומציה עסקית" } },
@@ -116,7 +116,7 @@ section{padding:96px 20px;position:relative}
 header{position:fixed;inset:0 0 auto 0;z-index:50;transition:.3s;border-bottom:1px solid transparent}
 header.scrolled{background:rgba(6,13,19,.85);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin-inline:auto;padding:16px 20px;gap:20px}
-.logo{height:40px;width:auto;display:block}
+.logo{height:54px;width:auto;display:block}
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{color:var(--muted);font-weight:500;font-size:.96rem;transition:.2s}
 .nav-links a:hover{color:var(--text)}
@@ -307,7 +307,7 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
 /* ===== footer ===== */
 footer{padding:60px 20px 30px;border-top:1px solid var(--line)}
 .fgrid{max-width:var(--max);margin-inline:auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:36px}
-footer img.logo{height:38px;margin-bottom:14px}
+footer img.logo{height:50px;margin-bottom:14px}
 footer p{color:var(--muted);font-size:.92rem;max-width:340px}
 .fcol h4{font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);margin-bottom:14px}
 .fcol a{display:block;color:var(--muted);font-size:.94rem;margin-bottom:10px;transition:.2s}
@@ -317,6 +317,10 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
 /* floating whatsapp */
 .wa-float{position:fixed;inset-block-end:22px;inset-inline-start:22px;z-index:40;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:.2s}
 .wa-float:hover{transform:scale(1.08)}
+
+/* toast */
+.toast{position:fixed;inset-block-end:96px;inset-inline-start:50%;transform:translateX(50%) translateY(8px);background:var(--panel-2);border:1px solid var(--line-2);color:var(--text);padding:12px 22px;border-radius:999px;font-weight:600;font-size:.92rem;z-index:60;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 10px 30px rgba(0,0,0,.45);white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(50%) translateY(0)}
 .wa-float svg{width:30px;height:30px;fill:#fff}
 
 /* reveal */
@@ -355,7 +359,7 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
     </div>
     <div class="nav-cta">
       <a href="#contact" class="btn btn-ghost">צרו קשר</a>
-      <a href="https://wa.me/972544497165?text=%D7%94%D7%99%D7%99%20Automaze%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%90%D7%95%D7%98%D7%95%D7%9E%D7%A6%D7%99%D7%94" class="btn btn-primary">ייעוץ חינם</a>
+      <a href="https://wa.me/972544497165?text=%D7%94%D7%99%D7%99%20Automaze%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%90%D7%95%D7%98%D7%95%D7%9E%D7%A6%D7%99%D7%94" target="_blank" rel="noopener" class="btn btn-primary">ייעוץ חינם</a>
       <button class="hamb" id="hamb" aria-label="תפריט"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -376,7 +380,7 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
       <p class="lead">העובד שלא ישן ולא לוקח חופש — אוטומציה שעושה את העבודה במקומכם: כל משימה שחוזרת על עצמה, פשוטה או מורכבת — מענה ללקוחות, חשבוניות, דוחות, תיאומים, מעקבים וחיבור בין מערכות — קורית מעכשיו לבד, בלי שתצטרכו להבין שום דבר טכני</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">קבעו שיחת ייעוץ חינם →</a>
-        <a href="https://wa.me/972544497165" class="btn btn-wa">
+        <a href="https://wa.me/972544497165" target="_blank" rel="noopener" class="btn btn-wa">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
           WhatsApp
         </a>
@@ -632,14 +636,14 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
       <h2>בואו נתחיל ממיפוי אחד</h2>
       <p>שיחה קצרה ללא התחייבות — נבין איפה העבודה הידנית נתקעת ונבדוק איזה פתרון הכי מתאים לך. מענה תוך יום עסקים.</p>
       <div class="cmeans">
-        <a class="cmean" href="https://wa.me/972544497165">
+        <a class="cmean" href="https://wa.me/972544497165" target="_blank" rel="noopener">
           <div class="ic">💬</div><div><b>WhatsApp</b><small>זמין בכל שעות היממה</small></div>
         </a>
         <a class="cmean" href="tel:+972544497165">
           <div class="ic">📞</div><div><b>054-449-7165</b><small>א׳–ה׳ 09:00–18:00</small></div>
         </a>
-        <a class="cmean" href="mailto:contactus@automaze.co.il">
-          <div class="ic">✉️</div><div><b>contactus@automaze.co.il</b><small>מענה תוך יום עסקים</small></div>
+        <a class="cmean" href="#" id="copyEmail" role="button">
+          <div class="ic">✉️</div><div><b>contactus@automaze.co.il</b><small>לחיצה מעתיקה את הכתובת</small></div>
         </a>
       </div>
     </div>
@@ -693,12 +697,12 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
     </div>
   </div>
   <div class="fbar">
-    <span>© <span id="yr"></span> Automaze · Amazing Automation · כל הזכויות שמורות</span>
+    <span>© <span id="yr"></span> Automaze · Making Amazing Automation · כל הזכויות שמורות</span>
     <span>נבנה עבור עסקים שרוצים לעבוד חכם, לא קשה.</span>
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/972544497165" aria-label="WhatsApp">
+<a class="wa-float" href="https://wa.me/972544497165" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.519 5.281l-.999 3.648 3.74-.981a9.87 9.87 0 00.71.353zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
 </a>
 
@@ -740,14 +744,38 @@ function calc(){
   I('totalYear').textContent=nf((opsMo+leadMo)*12);
 }
 [emp,hr,leads,deal].forEach(s=>s.addEventListener('input',calc));calc();
-// form (front-end demo: opens mailto + shows success)
-document.getElementById('leadForm').addEventListener('submit',function(ev){
+// toast helper
+function toast(t){let el=document.getElementById('toast');if(!el){el=document.createElement('div');el.id='toast';el.className='toast';document.body.appendChild(el);}el.textContent=t;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),2600);}
+// email button → copy to clipboard
+document.getElementById('copyEmail').addEventListener('click',function(ev){
   ev.preventDefault();
-  const d=new FormData(this);
-  const body=`שם: ${d.get('name')||''}%0Aטלפון: ${d.get('phone')||''}%0Aעסק: ${d.get('biz')||''}%0Aהודעה: ${d.get('msg')||''}`;
-  window.location.href=`mailto:contactus@automaze.co.il?subject=פנייה%20חדשה%20מהאתר%20-%20Automaze&body=${body}`;
-  document.getElementById('formFields').style.display='none';
-  document.getElementById('formOk').style.display='block';
+  const em='contactus@automaze.co.il';
+  (navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(em):Promise.reject()).then(
+    ()=>toast('📋 כתובת המייל הועתקה ללוח'),
+    ()=>{window.location.href='mailto:'+em;}
+  );
+});
+// form → email via Google Apps Script (see FORM-EMAIL-SETUP.md). Empty = mailto fallback.
+const FORM_ENDPOINT='https://script.google.com/macros/s/AKfycbyOcZXw-089vvUoiw3pFkLuXetONAZ0OlYhOwgls9eh9kyMWc8q7XwVF_Rgmy3awWzg/exec';
+document.getElementById('leadForm').addEventListener('submit',async function(ev){
+  ev.preventDefault();
+  const f=this,btn=f.querySelector('button[type=submit]');
+  const done=()=>{document.getElementById('formFields').style.display='none';document.getElementById('formOk').style.display='block';};
+  if(!FORM_ENDPOINT){
+    const d=new FormData(f);
+    const body=`שם: ${d.get('name')||''}%0Aטלפון: ${d.get('phone')||''}%0Aעסק: ${d.get('biz')||''}%0Aתחום: ${d.get('topic')||''}%0Aהודעה: ${d.get('msg')||''}`;
+    window.location.href=`mailto:contactus@automaze.co.il?subject=פנייה%20חדשה%20מהאתר%20-%20Automaze&body=${body}`;
+    done();return;
+  }
+  btn.disabled=true;btn.textContent='שולח…';
+  try{
+    const res=await fetch(FORM_ENDPOINT,{method:'POST',body:new FormData(f)});
+    if(!res.ok)throw new Error('bad status');
+    done();
+  }catch(err){
+    btn.disabled=false;btn.textContent='שליחה — ואחזור אליך →';
+    toast('⚠️ השליחה נכשלה — נסו שוב או כתבו לנו בוואטסאפ');
+  }
 });
 </script>
 </body>
