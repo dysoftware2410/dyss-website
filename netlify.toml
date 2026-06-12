@@ -1,4 +1,4 @@
-# Netlify configuration for the NEXORA static site.
+# Netlify configuration for the Automaze static site.
 # The site is plain static HTML/CSS/JS at the repo root — no build step.
 
 [build]
