@@ -758,6 +758,15 @@ document.getElementById('copyEmail').addEventListener('click',function(ev){
 });
 // form → email via Google Apps Script (see FORM-EMAIL-SETUP.md). Empty = mailto fallback.
 const FORM_ENDPOINT='https://script.google.com/macros/s/AKfycbyOcZXw-089vvUoiw3pFkLuXetONAZ0OlYhOwgls9eh9kyMWc8q7XwVF_Rgmy3awWzg/exec';
+// form → Make webhook (WhatsApp lead bot + Google Sheets), runs in parallel to the email
+const LEAD_WEBHOOK='https://hook.eu1.make.com/omfo4xqu20r0scvunp1dqiqqfao535xu';
+function normalizePhone(p){
+  let n=(p||'').replace(/[^\d+]/g,'');
+  if(n.startsWith('00'))n='+'+n.slice(2);
+  if(n.startsWith('0'))n='+972'+n.slice(1);          // 054… → +97254…
+  if(!n.startsWith('+')&&n.startsWith('972'))n='+'+n;
+  return n;
+}
 const emailEl=document.getElementById('email');
 emailEl.addEventListener('input',()=>emailEl.setCustomValidity(''));
 function validEmail(v){
@@ -773,6 +782,13 @@ document.getElementById('leadForm').addEventListener('submit',async function(ev)
     emailEl.reportValidity();emailEl.focus();return;
   }
   emailEl.setCustomValidity('');
+  // fire the Make webhook (WhatsApp bot + lead sheet); independent of the email path
+  try{
+    const dw=new FormData(f);
+    fetch(LEAD_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,
+      body:JSON.stringify({name:dw.get('name')||'',phone:normalizePhone(dw.get('phone')),email:emailVal,business:dw.get('biz')||'',topic:dw.get('topic')||'',message:dw.get('msg')||'',whatsapp_consent:'yes',source:'automaze.co.il'})
+    }).catch(()=>{});
+  }catch(e){}
   const done=()=>{document.getElementById('formFields').style.display='none';document.getElementById('formOk').style.display='block';};
   if(!FORM_ENDPOINT){
     const d=new FormData(f);
