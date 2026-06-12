@@ -16,15 +16,18 @@ function doPost(e) {
   const body =
     'שם: '    + (p.name  || '') + '\n' +
     'טלפון: ' + (p.phone || '') + '\n' +
+    'אימייל: ' + (p.email || '') + '\n' +
     'עסק: '   + (p.biz   || '') + '\n' +
     'תחום: '  + (p.topic || '') + '\n' +
     'הודעה: ' + (p.msg   || '') + '\n\n' +
     '— נשלח מטופס האתר automaze.co.il';
-  MailApp.sendEmail({
+  const mail = {
     to: TO,
     subject: 'ליד חדש מהאתר — ' + (p.name || 'ללא שם'),
     body: body
-  });
+  };
+  if (p.email) mail.replyTo = p.email;
+  MailApp.sendEmail(mail);
   return ContentService
     .createTextOutput(JSON.stringify({ ok: true }))
     .setMimeType(ContentService.MimeType.JSON);

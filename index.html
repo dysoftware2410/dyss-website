@@ -652,6 +652,7 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
       <div id="formFields">
         <div class="frow"><label for="name">שם מלא *</label><input id="name" name="name" required placeholder="ישראל ישראלי"></div>
         <div class="frow"><label for="phone">טלפון *</label><input id="phone" name="phone" type="tel" required placeholder="050-0000000"></div>
+        <div class="frow"><label for="email">אימייל *</label><input id="email" name="email" type="email" required placeholder="name@example.com" autocomplete="email" inputmode="email" dir="ltr" style="text-align:left"></div>
         <div class="frow"><label for="biz">שם העסק / תחום</label><input id="biz" name="biz" placeholder="לדוגמה: סוכנות נדל״ן"></div>
         <div class="frow"><label for="topic">מה מעניין אותך?</label>
           <select id="topic" name="topic">
@@ -757,13 +758,25 @@ document.getElementById('copyEmail').addEventListener('click',function(ev){
 });
 // form → email via Google Apps Script (see FORM-EMAIL-SETUP.md). Empty = mailto fallback.
 const FORM_ENDPOINT='https://script.google.com/macros/s/AKfycbyOcZXw-089vvUoiw3pFkLuXetONAZ0OlYhOwgls9eh9kyMWc8q7XwVF_Rgmy3awWzg/exec';
+const emailEl=document.getElementById('email');
+emailEl.addEventListener('input',()=>emailEl.setCustomValidity(''));
+function validEmail(v){
+  if(v.length>254||v.includes('..'))return false;
+  return /^[a-z0-9](?:[a-z0-9._%+-]{0,62}[a-z0-9])?@(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,24}$/.test(v);
+}
 document.getElementById('leadForm').addEventListener('submit',async function(ev){
   ev.preventDefault();
   const f=this,btn=f.querySelector('button[type=submit]');
+  const emailVal=emailEl.value.trim().toLowerCase();
+  if(!validEmail(emailVal)){
+    emailEl.setCustomValidity('נראה שכתובת האימייל לא תקינה — בדקו אותה שוב');
+    emailEl.reportValidity();emailEl.focus();return;
+  }
+  emailEl.setCustomValidity('');
   const done=()=>{document.getElementById('formFields').style.display='none';document.getElementById('formOk').style.display='block';};
   if(!FORM_ENDPOINT){
     const d=new FormData(f);
-    const body=`שם: ${d.get('name')||''}%0Aטלפון: ${d.get('phone')||''}%0Aעסק: ${d.get('biz')||''}%0Aתחום: ${d.get('topic')||''}%0Aהודעה: ${d.get('msg')||''}`;
+    const body=`שם: ${d.get('name')||''}%0Aטלפון: ${d.get('phone')||''}%0Aאימייל: ${emailVal}%0Aעסק: ${d.get('biz')||''}%0Aתחום: ${d.get('topic')||''}%0Aהודעה: ${d.get('msg')||''}`;
     window.location.href=`mailto:contactus@automaze.co.il?subject=פנייה%20חדשה%20מהאתר%20-%20Automaze&body=${body}`;
     done();return;
   }
