@@ -17,9 +17,9 @@ h1,h2,h3{line-height:1.25;font-weight:800;letter-spacing:-.01em}
 .btn-ghost:hover{border-color:var(--teal-2);color:var(--teal-2)}
 header{position:sticky;top:0;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
 header.scrolled{background:rgba(6,13,19,.85);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
-.nav{position:relative;display:flex;align-items:center;max-width:1180px;margin-inline:auto;padding:12px 20px;gap:26px}
-.logo{height:50px;width:auto;display:block}
-.nav-links{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.nav{position:relative;display:flex;align-items:center;max-width:1180px;margin-inline:auto;padding:16px 20px;gap:26px}
+.logo{height:54px;width:auto;display:block}
+.nav-links{display:flex;gap:24px;align-items:center;white-space:nowrap}
 .nav-links a{color:var(--muted);font-weight:500;font-size:.95rem;transition:.2s}
 .nav-links a:hover,.nav-links a.active{color:var(--text)}
 .nav-cta{display:flex;align-items:center;gap:12px;margin-inline-start:auto}
@@ -67,9 +67,9 @@ footer .flinks{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margi
 footer .flinks a{color:var(--muted)}footer .flinks a:hover{color:var(--teal-2)}
 .wa-float{position:fixed;inset-block-end:22px;inset-inline-start:22px;z-index:40;width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.4)}
 .wa-float svg{width:28px;height:28px;fill:#fff}
-@media(max-width:900px){
+@media(max-width:1240px){
   .nav-links,.nav-cta .btn-ghost{display:none}
   .hamb{display:flex}
-  .nav-links.open{display:flex;position:absolute;inset:62px 0 auto 0;flex-direction:column;align-items:flex-start;background:var(--bg-2);border-bottom:1px solid var(--line);padding:18px 24px;gap:16px;z-index:60}
+  .nav-links.open{display:flex;position:absolute;inset:100% 0 auto 0;flex-direction:column;align-items:flex-start;background:var(--bg-2);border-bottom:1px solid var(--line);padding:18px 24px;gap:16px;z-index:60}
 }
 @media(max-width:700px){.stats{grid-template-columns:1fr 1fr}}
