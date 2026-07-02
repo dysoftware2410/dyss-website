@@ -118,11 +118,22 @@ section{padding:96px 20px;position:relative}
 /* ===== header ===== */
 header{position:fixed;inset:0 0 auto 0;z-index:50;transition:.3s;border-bottom:1px solid transparent}
 header.scrolled{background:rgba(6,13,19,.85);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
-.nav{position:relative;display:flex;align-items:center;max-width:var(--max);margin-inline:auto;padding:16px 20px;gap:26px}
+.nav{position:relative;display:flex;align-items:center;max-width:var(--max);margin-inline:auto;padding:16px 20px;gap:22px}
 .logo{height:54px;width:auto;display:block}
-.nav-links{display:flex;gap:24px;align-items:center;white-space:nowrap}
+.nav-links{display:flex;gap:18px;align-items:center;white-space:nowrap}
 .nav-links a{color:var(--muted);font-weight:500;font-size:.96rem;transition:.2s}
 .nav-links a:hover{color:var(--text)}
+.nav-drop{position:relative;display:inline-flex;align-items:center}
+.nav-drop-t{background:none;border:0;color:var(--muted);font-family:inherit;font-weight:500;font-size:.96rem;cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:0}
+.nav-drop-t .caret{font-size:.68rem;transition:.2s}
+.nav-drop:hover .nav-drop-t,.nav-drop:focus-within .nav-drop-t,.nav-drop-t.active{color:var(--text)}
+.nav-drop:hover .nav-drop-t .caret{transform:rotate(180deg)}
+.nav-drop-menu a.active{background:var(--panel);color:var(--teal-2)}
+.nav-drop::after{content:"";position:absolute;top:100%;inset-inline:0;height:14px}
+.nav-drop-menu{display:none;position:absolute;inset-inline-start:0;top:calc(100% + 12px);min-width:232px;background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:8px;flex-direction:column;gap:2px;z-index:70;box-shadow:0 14px 44px rgba(0,0,0,.45)}
+.nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{display:flex}
+.nav-drop-menu a{padding:9px 12px;border-radius:8px;color:var(--muted);font-size:.92rem;white-space:nowrap}
+.nav-drop-menu a:hover{background:var(--panel);color:var(--text)}
 .nav-cta{display:flex;align-items:center;gap:12px;margin-inline-start:auto}
 .hamb{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
 .hamb span{width:24px;height:2px;background:var(--text);transition:.3s}
@@ -334,6 +345,12 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
   .nav-links,.nav-cta .btn-ghost{display:none}
   .hamb{display:flex}
   .nav-links.open{display:flex;position:absolute;inset:100% 0 auto 0;flex-direction:column;align-items:flex-start;background:var(--bg-2);border-bottom:1px solid var(--line);padding:18px 24px;gap:16px;z-index:60}
+  .nav-drop{display:block;width:100%}
+  .nav-drop-t{padding:2px 0}
+  .nav-drop-t .caret{display:none}
+  .nav-drop::after{display:none}
+  .nav-drop-menu{display:flex;position:static;inset:auto;top:auto;min-width:0;background:none;border:0;box-shadow:none;padding:6px 0 0;gap:0}
+  .nav-drop-menu a{padding:6px 0 6px 14px}
 }
 @media(max-width:900px){
   .hero .grid,.roi,.contact .grid{grid-template-columns:1fr}
@@ -362,7 +379,13 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
       <a href="#roi">מחשבון חיסכון</a>
       <a href="#faq">שאלות</a>
       <a href="about.html">פרופיל חברה</a>
-      <a href="blog/index.html">בלוג</a>
+      <div class="nav-drop">
+        <button type="button" class="nav-drop-t">מרכז ידע <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="AIAutomations.html">AI Automation — מדריך מלא</a>
+          <a href="blog/index.html">בלוג ומדריכים</a>
+        </div>
+      </div>
     </div>
     <div class="nav-cta">
       <a href="#contact" class="btn btn-ghost">צרו קשר</a>
@@ -384,7 +407,7 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
         <span class="chip">⚡ שיחת ייעוץ ראשונה <b>חינם</b></span>
       </div>
       <h1>תהפכו להיות הבעלים של העסק,<br><span class="hl">לא העובדים שלו</span></h1>
-      <p class="lead">העובד שלא ישן ולא לוקח חופש — אוטומציה שעושה את העבודה במקומכם: כל משימה שחוזרת על עצמה, פשוטה או מורכבת — מענה ללקוחות, חשבוניות, דוחות, תיאומים, מעקבים וחיבור בין מערכות — קורית מעכשיו לבד, בלי שתצטרכו להבין שום דבר טכני</p>
+      <p class="lead">יש עובד אחד שלא ישן ולא לוקח חופש: האוטומציה. היא עושה במקומכם את כל מה שחוזר על עצמו — מענה ללקוחות, חשבוניות, דוחות, תיאומים, מעקבים וחיבור בין מערכות — וכל זה קורה לבד, בלי שתצטרכו להבין שום דבר טכני.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">קבעו שיחת ייעוץ חינם →</a>
         <a href="https://wa.me/972544497165" target="_blank" rel="noopener" class="btn btn-wa">
@@ -422,7 +445,7 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
 <!-- TECH STRIP -->
 <div class="strip">
   <div class="strip-inner">
-    <div class="lbl">עובדים עם הכלים הכי חזקים בעולם האוטומציות</div>
+    <div class="lbl">עובדים עם הכלים המובילים בעולם האוטומציה</div>
     <span class="tool"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="" loading="lazy" onerror="this.remove()">WhatsApp</span>
     <span class="tool"><img src="https://cdn.simpleicons.org/make/6D00CC" alt="" loading="lazy" onerror="this.remove()">Make</span>
     <span class="tool"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="" loading="lazy" onerror="this.remove()">n8n</span>
@@ -449,14 +472,14 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
   <div class="wrap center reveal">
     <span class="eyebrow">השירותים שלנו</span>
     <h2 class="sec-title">פתרון לכל תהליך שגוזל לך זמן</h2>
-    <p class="sec-sub">לא חבילות מדף — כל פתרון נבנה סביב העסק והמערכות שכבר קיימות אצלך.</p>
+    <p class="sec-sub">אנחנו לא מוכרים חבילה מוכנה מראש. כל פתרון נבנה על העסק והמערכות שכבר יש לך.</p>
   </div>
   <div class="wrap cards">
     <div class="card reveal">
       <div class="media"><img src="svc-automation.webp" width="1000" height="600" loading="lazy" alt="אוטומציה עסקית — תהליכים אוטומטיים מחוברים"><div class="ic">⚙️</div></div>
       <div class="body">
         <h3>אוטומציה עסקית</h3>
-        <p>המשימות שחוזרות על עצמן — מענה לפניות, מעקב אחרי לקוחות, הצעות מחיר וחשבוניות — קורות לבד, כדי שתפסיקו לעבוד על טבלאות ותתפנו לעסק.</p>
+        <p>מענה לפניות, מעקב אחרי לקוחות, הצעות מחיר וחשבוניות — כל מה שחוזר על עצמו פשוט קורה לבד. אתם מפסיקים לחיות בתוך טבלאות, ומתפנים לנהל את העסק.</p>
         <ul><li>מעקב אוטומטי אחרי כל פנייה עד שנסגרת</li><li>הצעות מחיר, חשבוניות ומסמכים</li><li>דוחות ותזכורות שרצים לבד</li></ul>
       </div>
     </div>
@@ -480,7 +503,7 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
       <div class="media"><img src="svc-web.webp" width="1000" height="600" loading="lazy" alt="בניית אתרים מאפס — אתרים מהירים וידידותיים ל-SEO"><div class="ic">🌐</div></div>
       <div class="body">
         <h3>בניית אתרים</h3>
-        <p>אתר מהיר ויפה שעובד מצוין בנייד, מופיע בגוגל, ומחובר ישר למערכת — כך שכל פנייה מהאתר מטופלת אוטומטית.</p>
+        <p>אתר שנראה טוב, נטען מהר ועובד חלק בנייד. מופיע בגוגל ומחובר ישר למערכת, כך שכל פנייה מהאתר נכנסת לתהליך לבד.</p>
         <ul><li>עיצוב מותאם אישית ומיתוג</li><li>מהיר ומופיע בגוגל מהיום הראשון</li><li>טפסים שנכנסים ישר למערכת שלכם</li></ul>
       </div>
     </div>
@@ -492,7 +515,7 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
   <div class="wrap center reveal">
     <span class="eyebrow">מחשבון חיסכון</span>
     <h2 class="sec-title">כמה שווה לך אוטומציה — בכסף אמיתי?</h2>
-    <p class="sec-sub">הזיזו את המחוונים לקבלת הערכה שמרנית: חיסכון בעבודה ידנית + הכנסה נוספת ממענה מיידי ללידים. הערכה בלבד, לא הצעת מחיר.</p>
+    <p class="sec-sub">הזיזו את המחוונים ותקבלו הערכה זהירה: כמה תחסכו בעבודה ידנית, וכמה תוסיפו בזכות מענה מהיר יותר ללקוחות. זו הערכה בלבד, לא הצעת מחיר.</p>
   </div>
   <div class="wrap roi reveal">
     <div>
@@ -556,8 +579,8 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
 <section id="process">
   <div class="wrap center reveal">
     <span class="eyebrow">איך זה עובד</span>
-    <h2 class="sec-title">התהליך — מאפיון לעלייה לאוויר</h2>
-    <p class="sec-sub">בלי שתיגע בצד הטכני. מתחילים מהבעיה העסקית, ורק אז בוחרים כלים.</p>
+    <h2 class="sec-title">מהשיחה הראשונה ועד שהכל עובד לבד</h2>
+    <p class="sec-sub">אתם לא צריכים לגעת בצד הטכני. מתחילים מהבעיה בעסק, ורק אחר כך בוחרים את הכלים.</p>
   </div>
   <div class="wrap timeline" id="timeline">
     <div class="tl-track"><div class="tl-fill"></div><div class="tl-packet"></div></div>
@@ -576,7 +599,7 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
       </div>
       <div class="tl-step">
         <div class="tl-node"><span class="tl-ic">🚀</span><span class="tl-num">04</span></div>
-        <div class="tl-card"><h3>עלייה וליווי</h3><p>עולים לאוויר עם הדרכה מלאה, ותמיכה שוטפת כשהעסק גדל וצריך עוד.</p></div>
+        <div class="tl-card"><h3>השקה וליווי</h3><p>מעלים את המערכת לאוויר עם הדרכה מלאה, וממשיכים ללוות כשהעסק גדל וצריך עוד.</p></div>
       </div>
     </div>
   </div>
@@ -586,14 +609,14 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
 <section id="why" style="background:var(--bg-2);border-block:1px solid var(--line)">
   <div class="wrap center reveal">
     <span class="eyebrow">למה Automaze</span>
-    <h2 class="sec-title">פתרונות שחייבים לעבוד טוב ביום-יום</h2>
+    <h2 class="sec-title">מערכות שעובדות בשטח, לא רק במצגת</h2>
   </div>
   <div class="wrap feat">
     <div class="fitem reveal"><div class="ic">🎯</div><h3>מתחילים מהכאב האמיתי</h3><p>קודם מבינים את הבעיה העסקית, אחר כך בוחרים טכנולוגיה — לא הפוך.</p></div>
     <div class="fitem reveal"><div class="ic">🔓</div><h3>בלי נעילת ספק</h3><p>בונים על כלים פתוחים כמו n8n. המערכת נשארת אצלך, גם אם תפסיק לעבוד איתנו.</p></div>
     <div class="fitem reveal"><div class="ic">🧠</div><h3>אוטומציה + AI + פיתוח</h3><p>לא רק "מחברים Zapier" — בונים שכבה שלמה שמחברת בין העסק, הקוד וה-AI.</p></div>
     <div class="fitem reveal"><div class="ic">🇮🇱</div><h3>עברית ושוק ישראלי</h3><p>הכל בעברית, מותאם לחוק הגנת הפרטיות ולמערכות שעובדים איתן בארץ.</p></div>
-    <div class="fitem reveal"><div class="ic">⚡</div><h3>מהיר לאוויר</h3><p>רוב הפרויקטים עולים לאוויר תוך 2–4 שבועות — עם עדכונים לאורך הדרך.</p></div>
+    <div class="fitem reveal"><div class="ic">⚡</div><h3>מהיר להשקה</h3><p>רוב הפרויקטים מוכנים תוך 2–4 שבועות, עם עדכונים לאורך כל הדרך.</p></div>
     <div class="fitem reveal"><div class="ic">🤝</div><h3>ליווי אמיתי</h3><p>לא נעלמים אחרי ההשקה. מוודאים שזה עובד בשטח וממשיכים לשפר יחד.</p></div>
   </div>
 </section>
@@ -602,11 +625,11 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
 <section id="compare" style="background:var(--bg-2);border-block:1px solid var(--line)">
   <div class="wrap center reveal">
     <span class="eyebrow">השוואה</span>
-    <h2 class="sec-title">מערכת מדף, פיתוח עצמי, או פתרון שנבנה סביב העסק שלך?</h2>
+    <h2 class="sec-title">למה Automaze, ולא מערכת מוכנה או פיתוח עצמי?</h2>
   </div>
   <div class="wrap cmp reveal">
     <table>
-      <thead><tr><th>&nbsp;</th><th>כלי מדף</th><th>פיתוח עצמי</th><th class="us">Automaze</th></tr></thead>
+      <thead><tr><th>&nbsp;</th><th>מערכת מוכנה</th><th>פיתוח עצמי</th><th class="us">Automaze</th></tr></thead>
       <tbody>
         <tr><td>מותאם לתהליך האמיתי בעסק</td><td class="no">✕</td><td class="yes">✓</td><td class="us"><span class="yes">✓</span></td></tr>
         <tr><td>חיבור ל-CRM ולמערכות קיימות</td><td class="no">✕</td><td class="yes">✓</td><td class="us"><span class="yes">✓</span></td></tr>
@@ -624,7 +647,7 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
 <section id="faq">
   <div class="wrap center reveal">
     <span class="eyebrow">שאלות נפוצות</span>
-    <h2 class="sec-title">התשובות הישירות, לפני שמדברים</h2>
+    <h2 class="sec-title">שאלות שאתם בטח שואלים את עצמכם</h2>
   </div>
   <div class="wrap faq">
     <details class="q reveal"><summary>מה זה אוטומציה עסקית ולמה זה מתאים לי?</summary><div class="a">אוטומציה עסקית הופכת תהליכים חוזרים — מענה ללקוחות, ניהול לידים, הצעות מחיר, חשבוניות, דוחות — לאוטומטיים, בלי עבודה ידנית. זה מתאים לכל עסק עם תהליך שחוזר על עצמו וגוזל שעות בשבוע.</div></details>
@@ -702,6 +725,7 @@ footer p{color:var(--muted);font-size:.92rem;max-width:340px}
       <a href="#roi">מחשבון חיסכון</a>
       <a href="#faq">שאלות נפוצות</a>
       <a href="about.html">פרופיל חברה</a>
+      <a href="AIAutomations.html">מדריך AI Automation</a>
       <a href="blog/index.html">בלוג</a>
       <a href="#contact">צרו קשר</a>
     </div>
